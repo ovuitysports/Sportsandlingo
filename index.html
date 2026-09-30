@@ -11,6 +11,7 @@
 <meta property="og:type" content="website">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./support.js"></script>
+<script>function loadScript(a){var b=document.getElementsByTagName("head")[0],c=document.createElement("script");c.type="text/javascript",c.src="https://tracker.metricool.com/resources/be.js",c.onreadystatechange=a,c.onload=a,b.appendChild(c)}loadScript(function(){beTracker.t({hash:"be2b7874a3dd68315300ad913abd6a6b"})});</script>
 </head>
 <body>
 <template id="__bundler_thumbnail" data-bg-color="#006DAA">
@@ -133,7 +134,7 @@
       </div>
       <div style="position:relative;aspect-ratio:16/9;border-radius:28px;overflow:hidden;background:#0D3D57;box-shadow:0 8px 0 #C9E2F0">
         <sc-if value="{{ hasIntroVideo }}">
-          <iframe src="{{ introVideoUrl }}" title="Qué es Sports &amp; Lingo" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen="" style="position:absolute;inset:0;width:100%;height:100%;border:0"></iframe>
+          <video src="{{ introVideoUrl }}" title="Qué es Sports &amp; Lingo" controls="" playsInline="" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#0D3D57;display:block"></video>
         </sc-if>
         <sc-if value="{{ noIntroVideo }}" hint-placeholder-val="{{ true }}">
           <div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#DCF0FF;padding:24px">
@@ -1580,8 +1581,8 @@ const SKILLS = [
   { name: 'Verbos de movimiento', pct: 43 }
 ];
 
-// URL del vídeo "Qué es Sports & Lingo" (YouTube/Vimeo embed, p. ej. https://www.youtube.com/embed/ID).
-const INTRO_VIDEO_URL = '';
+// URL del .mp4 "Qué es Sports & Lingo" alojado en Hostinger (p. ej. https://sportsandlingo.com/video/que-es.mp4).
+const INTRO_VIDEO_URL = '/que-es-sports-and-lingo.mp4';
 
 // Pega aquí los Payment Links de Stripe cuando estén creados.
 // Mientras estén vacíos, los botones llevan al formulario de contacto.
