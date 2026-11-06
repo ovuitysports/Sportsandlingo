@@ -38,6 +38,7 @@
   @keyframes slBob { 0%,100% { transform:translateY(0); } 50% { transform:translateY(-10px); } }
   [data-sl-assets] { display:none; }
 </style>
+<script src="./image-slot.js"></script>
 </helmet>
 
 <div data-sl-assets="" aria-hidden="true">
@@ -49,9 +50,9 @@
 <div style="width:100%;background:#fff;font-family:'Lexend',system-ui,sans-serif;color:#0D3D57">
 
 <div style="background:#006DAA;color:#fff;font-size:14px;padding:9px clamp(16px,5vw,24px);display:flex;justify-content:center;gap:10px;align-items:center;letter-spacing:.01em">
-  <span style="font-weight:600">Nivel 1 disponible</span>
+  <span style="font-weight:600">Piloto abierto</span>
   <span style="opacity:.6">·</span>
-  <span style="opacity:.9">Primera misión gratis, sin registro</span>
+  <span style="opacity:.9">Inscripción gratuita hasta el lanzamiento de enero de 2027</span>
 </div>
 
 <div style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid #E6F0F6">
@@ -61,7 +62,6 @@
     <nav style="display:flex;align-items:center;gap:1px;flex-wrap:wrap;white-space:nowrap">
       <button onClick="{{ nav.metodo }}" style="font:inherit;font-size:14px;font-weight:500;color:#0D3D57;background:none;border:none;padding:8px 10px;border-radius:10px;cursor:pointer" style-hover="background:#F0F8FC;color:#006DAA">Learning by Playing</button>
       <button onClick="{{ nav.programas }}" style="font:inherit;font-size:14px;font-weight:500;color:#0D3D57;background:none;border:none;padding:8px 10px;border-radius:10px;cursor:pointer" style-hover="background:#F0F8FC;color:#006DAA">Programas</button>
-      <button onClick="{{ nav.clubes }}" style="font:inherit;font-size:14px;font-weight:500;color:#0D3D57;background:none;border:none;padding:8px 10px;border-radius:10px;cursor:pointer" style-hover="background:#F0F8FC;color:#006DAA">Clubes</button>
       <button onClick="{{ nav.colegios }}" style="font:inherit;font-size:14px;font-weight:500;color:#0D3D57;background:none;border:none;padding:8px 10px;border-radius:10px;cursor:pointer" style-hover="background:#F0F8FC;color:#006DAA">Colegios</button>
       <button onClick="{{ nav.app }}" style="font:inherit;font-size:14px;font-weight:600;color:#EB0057;background:none;border:none;padding:8px 10px;border-radius:10px;cursor:pointer" style-hover="background:#FFEEF4">La App</button>
       <button onClick="{{ nav.contacto }}" style="font:inherit;font-size:14px;font-weight:500;color:#0D3D57;background:none;border:none;padding:8px 10px;border-radius:10px;cursor:pointer" style-hover="background:#F0F8FC;color:#006DAA">Contacto</button>
@@ -75,7 +75,7 @@
       </div>
       <sc-if value="{{ isDesktop }}" hint-placeholder-val="{{ true }}">
       <button onClick="{{ nav.login }}" style="font:inherit;font-size:14px;font-weight:600;color:#006DAA;background:none;border:none;cursor:pointer;padding:8px 4px">Entrar</button>
-      <button onClick="{{ nav.app }}" style="font-family:'Baloo 2',cursive;font-size:15px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:13px;padding:10px 18px;box-shadow:0 3px 0 #B30044;cursor:pointer" style-hover="background:#FF1466" style-active="transform:translateY(2px);box-shadow:0 1px 0 #B30044">Prueba la app</button>
+      <button onClick="{{ nav.alta }}" style="font-family:'Baloo 2',cursive;font-size:15px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:13px;padding:10px 18px;box-shadow:0 3px 0 #B30044;cursor:pointer" style-hover="background:#FF1466" style-active="transform:translateY(2px);box-shadow:0 1px 0 #B30044">Inscríbete gratis</button>
       </sc-if>
       <sc-if value="{{ isMobile }}">
         <button onClick="{{ toggleMenu }}" aria-label="Menú" aria-expanded="{{ menuOpen }}" style="width:44px;height:44px;flex:none;display:grid;align-content:center;justify-items:center;gap:5px;background:{{ burgerBg }};border:1px solid #E6F0F6;border-radius:13px;cursor:pointer;padding:0">
@@ -90,13 +90,12 @@
     <div style="border-top:1px solid #E6F0F6;background:#fff;padding:10px clamp(16px,5vw,24px) 18px;display:grid;gap:2px">
       <button onClick="{{ nav.metodo }}" style="font:inherit;font-size:16px;font-weight:500;text-align:left;color:#0D3D57;background:none;border:none;padding:13px 12px;border-radius:12px;cursor:pointer;min-height:48px" style-hover="background:#F0F8FC;color:#006DAA">Learning by Playing</button>
       <button onClick="{{ nav.programas }}" style="font:inherit;font-size:16px;font-weight:500;text-align:left;color:#0D3D57;background:none;border:none;padding:13px 12px;border-radius:12px;cursor:pointer;min-height:48px" style-hover="background:#F0F8FC;color:#006DAA">Programas</button>
-      <button onClick="{{ nav.clubes }}" style="font:inherit;font-size:16px;font-weight:500;text-align:left;color:#0D3D57;background:none;border:none;padding:13px 12px;border-radius:12px;cursor:pointer;min-height:48px" style-hover="background:#F0F8FC;color:#006DAA">Clubes</button>
       <button onClick="{{ nav.colegios }}" style="font:inherit;font-size:16px;font-weight:500;text-align:left;color:#0D3D57;background:none;border:none;padding:13px 12px;border-radius:12px;cursor:pointer;min-height:48px" style-hover="background:#F0F8FC;color:#006DAA">Colegios</button>
       <button onClick="{{ nav.app }}" style="font:inherit;font-size:16px;font-weight:600;text-align:left;color:#EB0057;background:none;border:none;padding:13px 12px;border-radius:12px;cursor:pointer;min-height:48px" style-hover="background:#FFEEF4">La App</button>
       <button onClick="{{ nav.contacto }}" style="font:inherit;font-size:16px;font-weight:500;text-align:left;color:#0D3D57;background:none;border:none;padding:13px 12px;border-radius:12px;cursor:pointer;min-height:48px" style-hover="background:#F0F8FC;color:#006DAA">Contacto</button>
       <div style="height:1px;background:#E6F0F6;margin:10px 0"></div>
       <button onClick="{{ nav.login }}" style="font:inherit;font-size:16px;font-weight:600;color:#006DAA;background:#F0F8FC;border:none;border-radius:14px;padding:14px;cursor:pointer;min-height:48px">Entrar</button>
-      <button onClick="{{ nav.app }}" style="font-family:'Baloo 2',cursive;font-size:17px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:15px;padding:14px;box-shadow:0 3px 0 #B30044;cursor:pointer;min-height:50px" style-active="transform:translateY(2px);box-shadow:0 1px 0 #B30044">Prueba la app</button>
+      <button onClick="{{ nav.alta }}" style="font-family:'Baloo 2',cursive;font-size:17px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:15px;padding:14px;box-shadow:0 3px 0 #B30044;cursor:pointer;min-height:50px" style-active="transform:translateY(2px);box-shadow:0 1px 0 #B30044">Inscríbete gratis</button>
     </div>
   </sc-if>
 </div>
@@ -105,36 +104,69 @@
 <div>
   <section style="position:relative;overflow:hidden;background:linear-gradient(180deg,#0098FF 0%,#006DAA 100%)">
     <div style="position:absolute;inset:0;background-image:radial-gradient(circle at 15% 20%, rgba(255,255,255,.13) 0 90px, transparent 90px),radial-gradient(circle at 85% 70%, rgba(255,183,2,.18) 0 140px, transparent 140px)"></div>
-    <div style="position:relative;max-width:1200px;margin:0 auto;padding:70px clamp(16px,5vw,24px) 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:40px;align-items:end">
-      <div style="padding-bottom:80px">
+    <div style="position:relative;max-width:1200px;margin:0 auto;padding:70px clamp(16px,5vw,24px) 0;display:flex;flex-wrap:wrap;gap:24px 32px;align-items:center">
+      <div style="padding-bottom:80px;flex:1 1 380px;min-width:0">
         <div style="display:inline-flex;align-items:center;gap:8px;background:#FFB702;color:#0D3D57;font-weight:700;font-size:13px;letter-spacing:.06em;text-transform:uppercase;padding:7px 14px;border-radius:99px">6 – 12 años · Inglés</div>
         <h1 style="font-family:'Baloo 2',cursive;font-weight:800;font-size:clamp(36px,8.5vw,66px);line-height:1.02;color:#fff;margin:20px 0 0;text-wrap:balance">Aprenden inglés<br>jugando</h1>
-        <p style="font-size:20px;line-height:1.55;color:#DCF0FF;margin:20px 0 0;max-width:490px;text-wrap:pretty">Una app donde el deporte es el juego, y clases de refuerzo con profesor cuando hace falta más.</p>
+        <p style="font-size:20px;line-height:1.55;color:#DCF0FF;margin:20px 0 0;max-width:490px;text-wrap:pretty">Su equipo, sus ídolos y su deporte favorito, ahora en inglés. Misiones cortas, retos y medallas, y sin darse cuenta va subiendo de nivel.</p>
         <div style="display:flex;gap:14px;margin-top:32px;flex-wrap:wrap">
-          <button onClick="{{ nav.app }}" style="font-family:'Baloo 2',cursive;font-size:20px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:18px;padding:17px 32px;box-shadow:0 5px 0 #B30044;cursor:pointer" style-hover="background:#FF1466" style-active="transform:translateY(3px);box-shadow:0 2px 0 #B30044">Prueba la app gratis</button>
-          <button onClick="{{ nav.centros }}" style="font-family:'Baloo 2',cursive;font-size:20px;font-weight:700;background:#fff;color:#006DAA;border:none;border-radius:18px;padding:17px 32px;box-shadow:0 5px 0 #C9E2F0;cursor:pointer" style-hover="background:#F0F8FC" style-active="transform:translateY(3px);box-shadow:0 2px 0 #C9E2F0">Clases de refuerzo</button>
+          <button onClick="{{ nav.alta }}" style="font-family:'Baloo 2',cursive;font-size:20px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:18px;padding:17px 32px;box-shadow:0 5px 0 #B30044;cursor:pointer" style-hover="background:#FF1466" style-active="transform:translateY(3px);box-shadow:0 2px 0 #B30044">Inscríbete gratis</button>
+          <button onClick="{{ nav.app }}" style="font-family:'Baloo 2',cursive;font-size:20px;font-weight:700;background:#fff;color:#006DAA;border:none;border-radius:18px;padding:17px 32px;box-shadow:0 5px 0 #C9E2F0;cursor:pointer" style-hover="background:#F0F8FC" style-active="transform:translateY(3px);box-shadow:0 2px 0 #C9E2F0">Prueba una misión</button>
         </div>
         <div style="display:flex;gap:28px;margin-top:36px;color:#DCF0FF;font-size:15px;flex-wrap:wrap">
+          <span>✓ Inscripción gratuita</span>
           <span>✓ Sin instalar nada</span>
-          <span>✓ Primera misión gratis</span>
           <span>✓ Datos de menores protegidos</span>
         </div>
       </div>
-      <div style="position:relative;display:flex;justify-content:center;align-items:flex-end">
-        <img fetchpriority="high" decoding="async" src="assets/characters/leo-football-dribble.webp" alt="Leo, capitán de The Wild Team" style="aspect-ratio:1/1;width:100%;max-width:440px;display:block;animation:slBob 5s ease-in-out infinite">
+      <div style="position:relative;display:flex;justify-content:center;align-items:center;flex:1.45 1 480px;min-width:0;padding-bottom:30px">
+        <div style="width:106%;max-width:800px">
+          <img fetchpriority="high" decoding="async" src="assets/hero/hero-equipo-v3.webp" alt="Jira, Eli, Leo y Pica con tres niños vestidos de deporte, sonriendo y abrazados" style="aspect-ratio:1040/586;width:100%;height:auto;display:block;filter:drop-shadow(0 10px 18px rgba(0,40,70,.22))">
+        </div>
       </div>
     </div>
   </section>
 
-  <section style="background:#fff;padding:70px clamp(16px,5vw,24px) 10px">
-    <div style="max-width:960px;margin:0 auto">
-      <div style="text-align:center;margin-bottom:26px">
+  <section style="background:#fff;padding:76px clamp(16px,5vw,24px) 20px">
+    <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));gap:clamp(32px,5vw,56px);align-items:center">
+      <div style="min-width:0">
         <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#EB0057">En 1 minuto</div>
-        <h2 style="font-family:'Baloo 2',cursive;font-size:clamp(28px,6vw,42px);font-weight:800;margin:8px 0 0">Qué es Sports &amp; Lingo</h2>
+        <h2 style="font-family:'Baloo 2',cursive;font-size:clamp(30px,6.4vw,46px);font-weight:800;margin:8px 0 12px;line-height:1.05">Qué es Sports &amp; Lingo</h2>
+        <p style="font-size:18px;line-height:1.6;color:#3D6579;margin:0 0 28px;max-width:520px;text-wrap:pretty">Una plataforma donde tu hijo aprende inglés con lo que más le gusta: su deporte. Leo y su equipo le acompañan en cada misión.</p>
+        <div style="display:grid;gap:14px">
+          <div style="display:flex;gap:16px;align-items:center;background:#FFEEF4;border-radius:22px;padding:14px 18px 14px 10px">
+            <img loading="lazy" decoding="async" src="assets/characters/leo-football-dribble.webp" alt="Leo" style="aspect-ratio:1/1;width:72px;flex:none;display:block">
+            <div style="min-width:0">
+              <div style="font-family:'Baloo 2',cursive;font-size:21px;font-weight:700;line-height:1.15">Juega con su deporte</div>
+              <div style="font-size:15px;line-height:1.5;color:#3D6579">Misiones de 5 minutos con su equipo, sus ídolos y los partidos de la semana.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:center;background:#E9F5FF;border-radius:22px;padding:14px 18px 14px 10px">
+            <img loading="lazy" decoding="async" src="assets/characters/jira-2.webp" alt="Jira" style="aspect-ratio:1/1;width:72px;flex:none;display:block">
+            <div style="min-width:0">
+              <div style="font-family:'Baloo 2',cursive;font-size:21px;font-weight:700;line-height:1.15">Aprende inglés de verdad</div>
+              <div style="font-size:15px;line-height:1.5;color:#3D6579">El mismo inglés del colegio, nivel a nivel, con voces británicas.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:center;background:#FFF6E0;border-radius:22px;padding:14px 18px 14px 10px">
+            <img loading="lazy" decoding="async" src="assets/characters/pica-lazo-v3.png" alt="Pica" style="aspect-ratio:1/1;width:72px;flex:none;display:block">
+            <div style="min-width:0">
+              <div style="font-family:'Baloo 2',cursive;font-size:21px;font-weight:700;line-height:1.15">Se mueve mientras aprende</div>
+              <div style="font-size:15px;line-height:1.5;color:#3D6579">Retos con ejercicio real: toques, saltos, carreras… diciendo las palabras en inglés.</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:16px;align-items:center;background:#E9F7EF;border-radius:22px;padding:14px 18px 14px 10px">
+            <img loading="lazy" decoding="async" src="assets/characters/eli-2.webp" alt="Eli" style="aspect-ratio:1/1;width:72px;flex:none;display:block">
+            <div style="min-width:0">
+              <div style="font-family:'Baloo 2',cursive;font-size:21px;font-weight:700;line-height:1.15">Tú ves cómo avanza</div>
+              <div style="font-size:15px;line-height:1.5;color:#3D6579">Un informe sencillo con lo que domina y lo que le cuesta.</div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div style="position:relative;aspect-ratio:16/9;border-radius:28px;overflow:hidden;background:#0D3D57;box-shadow:0 8px 0 #C9E2F0">
+      <div style="position:relative;aspect-ratio:16/9;border-radius:28px;overflow:hidden;background:#0D3D57;box-shadow:0 8px 0 #C9E2F0;min-width:0">
         <sc-if value="{{ hasIntroVideo }}">
-          <video src="{{ introVideoUrl }}" title="Qué es Sports &amp; Lingo" controls="" playsInline="" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#0D3D57;display:block"></video>
+          <iframe src="{{ introVideoUrl }}" title="Qué es Sports &amp; Lingo" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen="" referrerpolicy="strict-origin-when-cross-origin" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:0;display:block"></iframe>
         </sc-if>
         <sc-if value="{{ noIntroVideo }}" hint-placeholder-val="{{ true }}">
           <div style="position:absolute;inset:0;display:grid;place-items:center;text-align:center;color:#DCF0FF;padding:24px">
@@ -153,12 +185,12 @@
       <div style="background:#FFEEF4;border-radius:26px;padding:clamp(22px,5.5vw,32px)">
         <div style="width:52px;height:52px;border-radius:16px;background:#EB0057;display:grid;place-items:center;font-size:26px">⚽</div>
         <h3 style="font-family:'Baloo 2',cursive;font-size:26px;font-weight:700;margin:18px 0 8px">Deporte</h3>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#3D6579">Sesiones reales de fútbol dirigidas en inglés. El idioma se usa para jugar, no para aprobar.</p>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#3D6579">Su deporte, su equipo y su equipo favorito son el contexto de cada semana. Empezamos con fútbol y baloncesto.</p>
       </div>
       <div style="background:#E9F5FF;border-radius:26px;padding:clamp(22px,5.5vw,32px)">
         <div style="width:52px;height:52px;border-radius:16px;background:#0098FF;display:grid;place-items:center;font-size:26px">💬</div>
         <h3 style="font-family:'Baloo 2',cursive;font-size:26px;font-weight:700;margin:18px 0 8px">Idiomas</h3>
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#3D6579">Vocabulario y fluidez mapeados a niveles CEFR, desde pre-A1. Locución británica.</p>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#3D6579">Inglés general con currículum CEFR desde pre-A1: present simple, past simple, comparativos. Locución británica.</p>
       </div>
       <div style="background:#FFF6E0;border-radius:26px;padding:clamp(22px,5.5vw,32px)">
         <div style="width:52px;height:52px;border-radius:16px;background:#FFB702;display:grid;place-items:center;font-size:26px">🏅</div>
@@ -273,34 +305,16 @@
     </div>
   </section>
 
-  <section style="background:#0D3D57;padding:76px clamp(16px,5vw,24px)">
-    <div style="max-width:1200px;margin:0 auto">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:50px;align-items:center">
-        <div>
-          <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FFB702">Clubes y escuelas deportivas</div>
-          <h2 style="font-family:'Baloo 2',cursive;font-size:clamp(28px,6.2vw,44px);font-weight:700;color:#fff;margin:10px 0 14px;line-height:1.1">Si su club está registrado, el equipo entra dentro</h2>
-          <p style="font-size:18px;line-height:1.6;color:#B9D9EC;margin:0 0 26px;max-width:480px">El niño aprende con el escudo de su club, compite por su equipo en la clasificación y su entrenador usa en la pista las frases de la semana. El club no tiene que montar nada.</p>
-          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,130px),auto));gap:26px;justify-content:start;margin-bottom:28px">
-            <div>
-              <div style="font-family:'Baloo 2',cursive;font-size:clamp(23px,4.8vw,32px);font-weight:800;color:#fff;line-height:1.1">Su equipo</div>
-              <div style="font-size:14px;color:#B9D9EC">dentro de la app</div>
-            </div>
-            <div>
-              <div style="font-family:'Baloo 2',cursive;font-size:clamp(23px,4.8vw,32px);font-weight:800;color:#fff;line-height:1.1">Su club</div>
-              <div style="font-size:14px;color:#B9D9EC">en el ranking nacional</div>
-            </div>
-            <div>
-              <div style="font-family:'Baloo 2',cursive;font-size:clamp(23px,4.8vw,32px);font-weight:800;color:#FFB702;line-height:1.1">Su entrenador</div>
-              <div style="font-size:14px;color:#B9D9EC">refuerza en la pista</div>
-            </div>
-          </div>
-          <div style="display:flex;gap:12px;flex-wrap:wrap">
-            <button onClick="{{ nav.clubes }}" style="font-family:'Baloo 2',cursive;font-size:18px;font-weight:700;background:#FFB702;color:#0D3D57;border:none;border-radius:16px;padding:15px 28px;box-shadow:0 4px 0 #CC9200;cursor:pointer" style-active="transform:translateY(2px);box-shadow:0 2px 0 #CC9200">Programa para clubes</button>
-            <button onClick="{{ nav.altaClub }}" style="font-family:'Baloo 2',cursive;font-size:18px;font-weight:700;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:16px;padding:15px 26px;cursor:pointer" style-hover="background:rgba(255,255,255,.22)">Dar de alta mi club</button>
-          </div>
-        </div>
-        <img loading="lazy" decoding="async" src="assets/characters/eli-4.webp" alt="Eli, el entrenador" style="aspect-ratio:1/1;width:100%;max-width:280px;justify-self:center;display:block">
+  <section style="background:#0D3D57;padding:64px clamp(16px,5vw,24px)">
+    <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:36px;align-items:center">
+      <div>
+        <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FFB702">Su deporte, cada semana</div>
+        <h2 style="font-family:'Baloo 2',cursive;font-size:clamp(28px,6.2vw,42px);font-weight:700;color:#fff;margin:10px 0 14px;line-height:1.1">Lección y Competición</h2>
+        <p style="font-size:18px;line-height:1.6;color:#B9D9EC;margin:0 0 14px;max-width:520px"><b style="color:#fff">Lección</b> es el currículum: niveles en orden, del pre-A1 al B1.</p>
+        <p style="font-size:18px;line-height:1.6;color:#B9D9EC;margin:0 0 26px;max-width:520px"><b style="color:#fff">Competición</b> es su deporte en inglés: contenido de su equipo, de su equipo favorito y de los deportes que le gustan. También las semanas sin liga.</p>
+        <button onClick="{{ nav.alta }}" style="font-family:'Baloo 2',cursive;font-size:18px;font-weight:700;background:#FFB702;color:#0D3D57;border:none;border-radius:16px;padding:15px 28px;box-shadow:0 4px 0 #CC9200;cursor:pointer" style-active="transform:translateY(2px);box-shadow:0 2px 0 #CC9200">Inscríbete gratis</button>
       </div>
+      <img loading="lazy" decoding="async" src="assets/characters/eli-4.webp" alt="Eli, el entrenador" style="aspect-ratio:1/1;width:100%;max-width:260px;justify-self:center;display:block">
     </div>
   </section>
 
@@ -412,11 +426,11 @@
           <p style="margin:0 0 18px;font-size:16px;line-height:1.6;color:#5B7A8C">Misiones interactivas con deporte y seguimiento del progreso para la familia.</p>
           <ul style="list-style:none;padding:0;margin:0 0 24px;display:grid;gap:10px;font-size:15px;color:#0D3D57">
             <li><b>Lección</b> — el currículum europeo, del Pre-A1 al B1</li>
-            <li><b>Competición</b> — cada semana, el partido real de su equipo en inglés</li>
+            <li><b>Competición</b> — su deporte en inglés: su equipo, su equipo favorito y los deportes que le gustan</li>
             <li>Progreso, racha y medallas</li>
             <li>Informe de progreso para la familia</li>
           </ul>
-          <button onClick="{{ nav.app }}" style="width:100%;font-family:'Baloo 2',cursive;font-size:18px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:16px;padding:15px;min-height:52px;box-shadow:0 4px 0 #B30044;cursor:pointer" style-active="transform:translateY(2px);box-shadow:0 2px 0 #B30044">Probar gratis</button>
+          <button onClick="{{ nav.alta }}" style="width:100%;font-family:'Baloo 2',cursive;font-size:18px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:16px;padding:15px;min-height:52px;box-shadow:0 4px 0 #B30044;cursor:pointer" style-active="transform:translateY(2px);box-shadow:0 2px 0 #B30044">Inscríbete gratis</button>
         </div>
         <div style="border:2px solid #E6F0F6;border-bottom-width:6px;border-radius:26px;padding:clamp(22px,5.5vw,32px);min-width:0;background:#fff">
           <img loading="lazy" decoding="async" src="assets/characters/jira-2.webp" alt="Jira, la profesora de inglés" style="aspect-ratio:1/1;height:120px;display:block;margin-bottom:10px">
@@ -510,199 +524,20 @@
 
 <sc-if value="{{ isClubes }}" hint-placeholder-val="{{ false }}">
 <div>
-  <section style="background:#0D3D57;padding:70px clamp(16px,5vw,24px)">
-    <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:40px;align-items:center">
-      <div>
-        <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#FFB702">Clubes y escuelas deportivas</div>
-        <h1 style="font-family:'Baloo 2',cursive;font-size:clamp(31px,7.2vw,52px);font-weight:800;color:#fff;margin:12px 0 16px;line-height:1.05">Inglés de verdad para tu escuela base</h1>
-        <p style="font-size:19px;line-height:1.6;color:#B9D9EC;margin:0 0 28px;max-width:520px">Un programa educativo con currículum europeo que se apoya en lo que tus jugadores ya aman. Tú no tienes que montar nada: nosotros ponemos el contenido, la app y la comunicación semanal.</p>
-        <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <button onClick="{{ nav.altaClub }}" style="font-family:'Baloo 2',cursive;font-size:19px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:18px;padding:16px 32px;box-shadow:0 5px 0 #B30044;cursor:pointer" style-active="transform:translateY(3px);box-shadow:0 2px 0 #B30044">Dar de alta mi club</button>
-          <button onClick="{{ nav.panelClub }}" style="font-family:'Baloo 2',cursive;font-size:19px;font-weight:700;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:18px;padding:16px 28px;cursor:pointer" style-hover="background:rgba(255,255,255,.22)">Ver el panel del club</button>
-        </div>
+  <section style="background:#fff;padding:70px clamp(16px,5vw,24px) 80px">
+    <div style="max-width:820px;margin:0 auto">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#EB0057">Clubes y escuelas deportivas</div>
+      <h1 style="font-family:'Baloo 2',cursive;font-size:clamp(31px,7vw,50px);font-weight:800;margin:12px 0 16px;line-height:1.05">Primero las familias. Después, el club.</h1>
+      <p style="font-size:19px;line-height:1.6;color:#3D6579;margin:0 0 14px;text-wrap:pretty">Las familias inscriben a sus hijos directamente y gratis. Cada niño indica en qué equipo juega, así que su Competición semanal ya habla de su equipo.</p>
+      <p style="font-size:19px;line-height:1.6;color:#3D6579;margin:0 0 30px;text-wrap:pretty">Cuando hay jugadores de vuestro club dentro, os podemos enseñar la actividad agregada y anónima de vuestros equipos y preparar contenido oficial o a medida para la Competición.</p>
+      <div style="background:#F4F9FC;border:2px solid #E6F0F6;border-radius:22px;padding:clamp(20px,5vw,28px);margin-bottom:28px">
+        <b style="display:block;font-family:'Baloo 2',cursive;font-size:22px;margin-bottom:6px">Piloto de otoño 2026</b>
+        <p style="margin:0;font-size:16px;line-height:1.6;color:#5B7A8C">Gratuito, con 3-4 equipos de base, de octubre de 2026 a enero de 2027.</p>
       </div>
-      <img loading="lazy" decoding="async" src="assets/characters/eli-3.webp" alt="Eli, el entrenador" style="aspect-ratio:1/1;width:100%;max-width:280px;justify-self:center;display:block">
-    </div>
-  </section>
-
-  <section style="background:#fff;padding:70px clamp(16px,5vw,24px) 40px">
-    <div style="max-width:1100px;margin:0 auto">
-      <h2 style="font-family:'Baloo 2',cursive;font-size:clamp(26px,5.4vw,38px);font-weight:700;margin:0 0 8px">Qué gana tu club</h2>
-      <p style="font-size:17px;color:#5B7A8C;margin:0 0 30px;max-width:640px">Un activo educativo que hoy no tienes, con cero gestión y sin tocar el entrenamiento.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
-        <div style="background:#E9F5FF;border-radius:26px;padding:30px">
-          <h4 style="font-family:'Baloo 2',cursive;font-size:23px;font-weight:700;margin:0 0 10px">Valor real para tus familias</h4>
-          <p style="margin:0;font-size:15px;line-height:1.6;color:#3D6579">Inglés con currículum europeo dentro de tu club. Deja de ser contenido de marca y pasa a ser formación que la familia reconoce.</p>
-        </div>
-        <div style="background:#FFEEF4;border-radius:26px;padding:30px">
-          <h4 style="font-family:'Baloo 2',cursive;font-size:23px;font-weight:700;margin:0 0 10px">Un motivo más para quedarse</h4>
-          <p style="margin:0;font-size:15px;line-height:1.6;color:#3D6579">El niño compite por su equipo también fuera del campo. La vinculación con el club se extiende a los días que no hay entrenamiento.</p>
-        </div>
-        <div style="background:#FFF6E0;border-radius:26px;padding:30px">
-          <h4 style="font-family:'Baloo 2',cursive;font-size:23px;font-weight:700;margin:0 0 10px">Un activo patrocinable</h4>
-          <p style="margin:0;font-size:15px;line-height:1.6;color:#3D6579">Un programa educativo con nombre y resultados medibles es algo que una marca local quiere apoyar. Preparamos contigo el dossier.</p>
-        </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <button onClick="{{ nav.contacto }}" style="font-family:'Baloo 2',cursive;font-size:18px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:16px;padding:15px 28px;box-shadow:0 4px 0 #B30044;cursor:pointer" style-active="transform:translateY(2px);box-shadow:0 2px 0 #B30044">Hablemos</button>
+        <button onClick="{{ nav.alta }}" style="font-family:'Baloo 2',cursive;font-size:18px;font-weight:700;background:#fff;color:#006DAA;border:2px solid #C9E2F0;border-radius:16px;padding:13px 26px;cursor:pointer" style-hover="background:#F0F8FC">Ver el alta de familias</button>
       </div>
-      <p style="font-size:16px;color:#0D3D57;margin:24px 0 0;font-weight:500">Sin aula, sin material y sin personal que sepa inglés. Lo único que te pedimos es compartir el enlace de alta con tus familias una vez por temporada.</p>
-    </div>
-  </section>
-
-  <section style="background:#F4F9FC;padding:60px clamp(16px,5vw,24px)">
-    <div style="max-width:1100px;margin:0 auto">
-      <h2 style="font-family:'Baloo 2',cursive;font-size:clamp(26px,5.4vw,38px);font-weight:700;margin:0 0 8px">Tres formas de entrar</h2>
-      <p style="font-size:17px;color:#5B7A8C;margin:0 0 28px;max-width:640px">La capa del club llega a toda la plantilla. Encima, cada familia elige por su cuenta.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
-        <div style="background:#fff;border:2px solid #E6F0F6;border-bottom-width:6px;border-radius:26px;padding:30px">
-          <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#006DAA">Club</div>
-          <h4 style="font-family:'Baloo 2',cursive;font-size:24px;font-weight:700;margin:8px 0 12px">Toda la plantilla</h4>
-          <p style="margin:0;font-size:15px;line-height:1.6;color:#5B7A8C">El Tablón del equipo dentro de la app, la tarjeta del vestuario y tu panel de club.</p>
-        </div>
-        <div style="background:#fff;border:2px solid #E6F0F6;border-bottom-width:6px;border-radius:26px;padding:30px">
-          <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#006DAA">Jugador</div>
-          <h4 style="font-family:'Baloo 2',cursive;font-size:24px;font-weight:700;margin:8px 0 12px">Con el código del club</h4>
-          <p style="margin:0;font-size:15px;line-height:1.6;color:#5B7A8C">Tres juegos —Competición, Tiros a puerta e Instrucciones del entrenador— y una misión nueva por semana, con el escudo del club.</p>
-        </div>
-        <div style="background:#fff;border:3px solid #EB0057;border-bottom-width:7px;border-radius:26px;padding:30px">
-          <div style="font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#B30044">Wild Team</div>
-          <h4 style="font-family:'Baloo 2',cursive;font-size:24px;font-weight:700;margin:8px 0 12px">La suscripción completa</h4>
-          <p style="margin:0;font-size:15px;line-height:1.6;color:#5B7A8C">Currículum europeo completo, misiones sin límite, todos los deportes, speaking e informes.</p>
-        </div>
-      </div>
-      <p style="font-size:16px;color:#0D3D57;margin:22px 0 0;font-weight:500">Las tres clasificaciones no se limitan nunca: quien entra por el club puntúa igual que quien tiene la suscripción completa.</p>
-    </div>
-  </section>
-
-  <section style="background:#fff;padding:70px clamp(16px,5vw,24px)">
-    <div style="max-width:1100px;margin:0 auto">
-      <h2 style="font-family:'Baloo 2',cursive;font-size:clamp(26px,5.4vw,38px);font-weight:700;margin:0 0 8px">«¿Y los niños que no tengan la suscripción?»</h2>
-      <p style="font-size:17px;color:#5B7A8C;margin:0 0 28px;max-width:640px">Es la primera pregunta que nos vas a hacer y es la correcta. Así lo hemos resuelto.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px">
-        <div style="background:#F4F9FC;border-radius:22px;padding:28px">
-          <h4 style="font-family:'Baloo 2',cursive;font-size:22px;font-weight:700;margin:0 0 8px">Llega a todos</h4>
-          <p style="margin:0;font-size:16px;line-height:1.6;color:#3D6579">El Tablón está abierto a todo el equipo, paguen o no, y la tarjeta está en el vestuario de todos. En el campo no se distingue quién paga.</p>
-        </div>
-        <div style="background:#F4F9FC;border-radius:22px;padding:28px">
-          <h4 style="font-family:'Baloo 2',cursive;font-size:22px;font-weight:700;margin:0 0 8px">La clasificación va por media</h4>
-          <p style="margin:0;font-size:16px;line-height:1.6;color:#3D6579">No por suma. Cinco jugadores comprometidos ganan a dieciocho tibios, así que ningún entrenador tiene motivo para presionar a una familia.</p>
-        </div>
-        <div style="background:#F4F9FC;border-radius:22px;padding:28px">
-          <h4 style="font-family:'Baloo 2',cursive;font-size:22px;font-weight:700;margin:0 0 8px">Becas del club</h4>
-          <p style="margin:0;font-size:16px;line-height:1.6;color:#3D6579">El club dispone de plazas becadas que asigna a las familias que no puedan asumirlo. No le cuestan nada.</p>
-        </div>
-        <div style="background:#F4F9FC;border-radius:22px;padding:28px">
-          <h4 style="font-family:'Baloo 2',cursive;font-size:22px;font-weight:700;margin:0 0 8px">Nada visible</h4>
-          <p style="margin:0;font-size:16px;line-height:1.6;color:#3D6579">Sin distintivos ni menciones delante del grupo. La diferencia está en la app, en casa. Es una regla de producto.</p>
-        </div>
-      </div>
-      <div style="border:2px dashed #C9E2F0;border-radius:26px;padding:28px 32px;margin-top:22px">
-        <p style="margin:0;font-size:16px;line-height:1.6;color:#3D6579">Y si prefieres resolverlo de golpe, existe la licencia de plantilla completa: el club activa la modalidad Jugador para todos sus equipos y ninguna familia queda fuera. Lo vemos en la reunión.</p>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:#0D3D57;padding:70px clamp(16px,5vw,24px)">
-    <div style="max-width:1100px;margin:0 auto">
-      <h2 style="font-family:'Baloo 2',cursive;font-size:clamp(26px,5.4vw,38px);font-weight:700;color:#fff;margin:0 0 8px">Las clasificaciones: motivan y no humillan</h2>
-      <p style="font-size:17px;color:#B9D9EC;margin:0 0 30px;max-width:680px">El XP de cada niño puntúa en tres clasificaciones a la vez: dentro de su equipo, entre los equipos de tu club y en el ranking nacional de clubes, que puedes publicar en tus redes.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px">
-        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:26px">
-          <h4 style="font-family:'Baloo 2',cursive;font-size:21px;font-weight:700;color:#fff;margin:0 0 8px">El XP mide esfuerzo, no nivel</h4>
-          <p style="margin:0;font-size:15px;line-height:1.6;color:#B9D9EC">Un niño que va justo de inglés gana los mismos puntos que el mejor si hace su semana. No se puede ser malo: solo se puede no estar.</p>
-        </div>
-        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:26px">
-          <h4 style="font-family:'Baloo 2',cursive;font-size:21px;font-weight:700;color:#fff;margin:0 0 8px">Nunca hay un último</h4>
-          <p style="margin:0;font-size:15px;line-height:1.6;color:#B9D9EC">Ve el podio de su equipo y, si no está, solo al que tiene delante. Sin número de posición y sin nadie por debajo.</p>
-        </div>
-        <div style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:22px;padding:26px">
-          <h4 style="font-family:'Baloo 2',cursive;font-size:21px;font-weight:700;color:#fff;margin:0 0 8px">Nadie termina sin nada</h4>
-          <p style="margin:0;font-size:15px;line-height:1.6;color:#B9D9EC">Varios premios al cierre —más constante, mejor remontada, mejor compañero— y su tarjeta personal: «240 palabras en 31 semanas».</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:#fff;padding:70px clamp(16px,5vw,24px)">
-    <div style="max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:44px">
-      <div>
-        <h2 style="font-family:'Baloo 2',cursive;font-size:clamp(24px,5vw,34px);font-weight:700;margin:0 0 20px">Cómo funciona</h2>
-        <div style="display:grid;gap:14px">
-          <div style="display:flex;gap:18px;align-items:flex-start;background:#F4F9FC;border-radius:18px;padding:20px clamp(16px,5vw,24px)">
-            <div style="font-family:'Baloo 2',cursive;font-size:20px;font-weight:700;color:#fff;background:#006DAA;width:38px;height:38px;flex:none;border-radius:50%;display:grid;place-items:center">1</div>
-            <div><b style="font-size:17px">Das de alta el club y sus equipos</b><div style="font-size:15px;color:#5B7A8C;line-height:1.6">Cada jugador entra con el código del club, aparece en tu panel al momento y entra en la clasificación de su equipo.</div></div>
-          </div>
-          <div style="display:flex;gap:18px;align-items:flex-start;background:#F4F9FC;border-radius:18px;padding:20px clamp(16px,5vw,24px)">
-            <div style="font-family:'Baloo 2',cursive;font-size:20px;font-weight:700;color:#fff;background:#006DAA;width:38px;height:38px;flex:none;border-radius:50%;display:grid;place-items:center">2</div>
-            <div><b style="font-size:17px">Compartes el enlace de alta, una vez por temporada</b><div style="font-size:15px;color:#5B7A8C;line-height:1.6">Es lo único que te pedimos. Nada dentro del entrenamiento y nada semanal.</div></div>
-          </div>
-          <div style="display:flex;gap:18px;align-items:flex-start;background:#F4F9FC;border-radius:18px;padding:20px clamp(16px,5vw,24px)">
-            <div style="font-family:'Baloo 2',cursive;font-size:20px;font-weight:700;color:#fff;background:#006DAA;width:38px;height:38px;flex:none;border-radius:50%;display:grid;place-items:center">3</div>
-            <div><b style="font-size:17px">Publicamos el Tablón cada semana</b><div style="font-size:15px;color:#5B7A8C;line-height:1.6">Tres frases con audio, el resultado del partido y la posición del equipo, dentro de la app. Avisamos nosotros. Tú no haces nada.</div></div>
-          </div>
-          <div style="display:flex;gap:18px;align-items:flex-start;background:#F4F9FC;border-radius:18px;padding:20px clamp(16px,5vw,24px)">
-            <div style="font-family:'Baloo 2',cursive;font-size:20px;font-weight:700;color:#fff;background:#006DAA;width:38px;height:38px;flex:none;border-radius:50%;display:grid;place-items:center">4</div>
-            <div><b style="font-size:17px">Informe para el club</b><div style="font-size:15px;color:#5B7A8C;line-height:1.6">Progreso por grupo y alumno, listo para enviar a las familias con tu marca.</div></div>
-          </div>
-        </div>
-        <p style="font-size:15px;color:#5B7A8C;margin:20px 0 0">No necesitas aula, material ni personal que sepa inglés.</p>
-      </div>
-      <div>
-        <h2 style="font-family:'Baloo 2',cursive;font-size:clamp(24px,5vw,34px);font-weight:700;margin:0 0 20px">Tu panel de club</h2>
-        <ul style="list-style:none;padding:0;margin:0 0 26px;display:grid;gap:12px;font-size:16px;color:#0D3D57">
-          <li style="display:flex;gap:12px"><span style="color:#1B9E56;font-weight:700">✓</span> Qué jugadores se han inscrito, cuántos siguen activos y quién ha dejado de entrar</li>
-          <li style="display:flex;gap:12px"><span style="color:#1B9E56;font-weight:700">✓</span> Actividad por equipos, semana a semana</li>
-          <li style="display:flex;gap:12px"><span style="color:#1B9E56;font-weight:700">✓</span> Progreso por equipo y por jugador, por objetivo lingüístico</li>
-          <li style="display:flex;gap:12px"><span style="color:#1B9E56;font-weight:700">✓</span> Tu posición en el ranking nacional de clubes</li>
-          <li style="display:flex;gap:12px"><span style="color:#1B9E56;font-weight:700">✓</span> Becas disponibles y a quién se las has asignado</li>
-          <li style="display:flex;gap:12px"><span style="color:#1B9E56;font-weight:700">✓</span> Informes para familias con tu marca</li>
-        </ul>
-        <div style="background:#FFF6E0;border-radius:22px;padding:26px">
-          <h4 style="font-family:'Baloo 2',cursive;font-size:21px;font-weight:700;margin:0 0 8px">Vía patrocinador</h4>
-          <p style="margin:0 0 14px;font-size:16px;line-height:1.6;color:#3D6579">El programa lo puede sostener una marca en lugar del club. Preparamos contigo el dossier de patrocinio: tú aportas la audiencia, nosotros el contenido educativo que le da sentido.</p>
-          <p style="margin:0;font-size:15px;color:#8A6200;font-weight:600">Y en tu campus de verano funciona como actividad de la semana, con su propio material.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section style="background:#fff;padding:20px clamp(16px,5vw,24px) 70px">
-    <div style="max-width:1100px;margin:0 auto">
-      <h2 style="font-family:'Baloo 2',cursive;font-size:clamp(26px,5.4vw,38px);font-weight:700;margin:0 0 8px">Dos accesos, dos vistas distintas</h2>
-      <p style="font-size:17px;color:#5B7A8C;margin:0 0 28px;max-width:640px">El club gestiona; el entrenador solo ve lo que necesita para el jueves. Nadie ve datos personales de los menores.</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px">
-        <div style="border:2px solid #E6F0F6;border-bottom-width:6px;border-radius:26px;padding:30px">
-          <div style="display:inline-block;background:#E9F5FF;color:#006DAA;font-size:12px;font-weight:700;padding:5px 12px;border-radius:99px">CLUB O ESCUELA DEPORTIVA</div>
-          <h3 style="font-family:'Baloo 2',cursive;font-size:26px;font-weight:700;margin:14px 0 10px">Panel del club</h3>
-          <ul style="list-style:none;padding:0;margin:0 0 22px;display:grid;gap:10px;font-size:15px;color:#0D3D57">
-            <li>Alta de equipos y código de club</li>
-            <li>Inscritos, activos y quién ha dejado de entrar</li>
-            <li>Clasificaciones y posición en el ranking nacional</li>
-            <li>Becas del club e informes con vuestra marca</li>
-          </ul>
-          <button onClick="{{ nav.panelClub }}" style="width:100%;font-family:'Baloo 2',cursive;font-size:17px;font-weight:700;background:#fff;color:#006DAA;border:2px solid #C9E2F0;border-radius:16px;padding:13px;cursor:pointer" style-hover="background:#F0F8FC">Ver el panel del club</button>
-        </div>
-        <div style="border:2px solid #E6F0F6;border-bottom-width:6px;border-radius:26px;padding:30px">
-          <div style="display:inline-block;background:#FFF6E0;color:#8A6200;font-size:12px;font-weight:700;padding:5px 12px;border-radius:99px">ENTRENADOR O PROFESOR</div>
-          <h3 style="font-family:'Baloo 2',cursive;font-size:26px;font-weight:700;margin:14px 0 10px">Acceso del cuerpo técnico</h3>
-          <ul style="list-style:none;padding:0;margin:0 0 22px;display:grid;gap:10px;font-size:15px;color:#0D3D57">
-            <li>Las tres frases de la semana, con audio</li>
-            <li>Tarjeta del vestuario para imprimir</li>
-            <li>Progreso del grupo por objetivo lingüístico</li>
-            <li>Sin datos personales de los menores</li>
-          </ul>
-          <button onClick="{{ nav.panelCoach }}" style="width:100%;font-family:'Baloo 2',cursive;font-size:17px;font-weight:700;background:#fff;color:#006DAA;border:2px solid #C9E2F0;border-radius:16px;padding:13px;cursor:pointer" style-hover="background:#F0F8FC">Ver el acceso del entrenador</button>
-        </div>
-      </div>
-      <p style="font-size:15px;color:#5B7A8C;margin:22px 0 0">No hace falta que el entrenador sepa inglés: la app enseña y él solo repite tres frases si quiere. Es opcional y no lo medimos.</p>
-    </div>
-  </section>
-
-  <section style="background:#FFF6E0;padding:56px clamp(16px,5vw,24px)">
-    <div style="max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:36px;flex-wrap:wrap;justify-content:space-between">
-      <div style="max-width:560px">
-        <h2 style="font-family:'Baloo 2',cursive;font-size:clamp(24px,5vw,34px);font-weight:700;margin:0 0 8px">Piloto sin coste: un equipo, 8 semanas</h2>
-        <p style="margin:0;font-size:17px;line-height:1.6;color:#3D6579">Con informe de resultados al final. Si no funciona, no seguimos.</p>
-      </div>
-      <button onClick="{{ nav.contacto }}" style="font-family:'Baloo 2',cursive;font-size:19px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:18px;padding:16px 32px;box-shadow:0 5px 0 #B30044;cursor:pointer" style-active="transform:translateY(3px);box-shadow:0 2px 0 #B30044">Hablemos</button>
     </div>
   </section>
 </div>
@@ -892,7 +727,7 @@
             <b style="font-size:16px">Esto es solo la misión 1 de 6 del Nivel 1.</b>
             <div style="font-size:15px;color:#5B7A8C;margin-top:4px">Crea la cuenta de familia para guardar el progreso, la racha y las medallas.</div>
           </div>
-          <button onClick="{{ nav.login }}" style="width:100%;font-family:'Baloo 2',cursive;font-size:19px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:18px;padding:16px;box-shadow:0 5px 0 #B30044;cursor:pointer" style-active="transform:translateY(3px);box-shadow:0 2px 0 #B30044">Crear cuenta gratis</button>
+          <button onClick="{{ nav.alta }}" style="width:100%;font-family:'Baloo 2',cursive;font-size:19px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:18px;padding:16px;box-shadow:0 5px 0 #B30044;cursor:pointer" style-active="transform:translateY(3px);box-shadow:0 2px 0 #B30044">Crear cuenta gratis</button>
           <button onClick="{{ demoRestart }}" style="font:inherit;font-size:15px;font-weight:600;color:#006DAA;background:none;border:none;cursor:pointer;margin-top:12px">Volver a jugar</button>
         </div>
         </sc-if>
@@ -983,13 +818,30 @@
         </div>
         <div style="background:#006DAA;border-radius:24px;padding:30px;color:#fff">
           <h3 style="font-family:'Baloo 2',cursive;font-size:24px;font-weight:700;margin:0 0 8px">¿Club o colegio?</h3>
-          <p style="margin:0 0 16px;font-size:16px;color:#DCF0FF;line-height:1.6">Piloto gratuito de 8 semanas con un equipo o un grupo, con informe de resultados al final.</p>
+          <p style="margin:0 0 16px;font-size:16px;color:#DCF0FF;line-height:1.6">Piloto gratuito de octubre a enero con equipos de base y grupos de colegio.</p>
           <div style="display:flex;gap:10px;flex-wrap:wrap">
             <button onClick="{{ nav.clubes }}" style="font-family:'Baloo 2',cursive;font-size:16px;font-weight:700;background:#FFB702;color:#0D3D57;border:none;border-radius:14px;padding:12px 22px;box-shadow:0 4px 0 #CC9200;cursor:pointer" style-active="transform:translateY(2px);box-shadow:0 2px 0 #CC9200">Para clubes</button>
             <button onClick="{{ nav.colegios }}" style="font-family:'Baloo 2',cursive;font-size:16px;font-weight:700;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.3);border-radius:14px;padding:12px 22px;cursor:pointer" style-hover="background:rgba(255,255,255,.22)">Para colegios</button>
           </div>
         </div>
         <img loading="lazy" decoding="async" src="assets/characters/leo-sitting.webp" alt="Leo sentado" style="aspect-ratio:1/1;width:150px;display:block;margin:24px auto 0">
+      </div>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<sc-if value="{{ isLocked }}" hint-placeholder-val="{{ false }}">
+<div>
+  <section style="background:#F4F9FC;padding:70px clamp(16px,5vw,24px) 90px;min-height:70vh">
+    <div style="max-width:620px;margin:0 auto;background:#fff;border-radius:28px;padding:clamp(26px,6vw,44px);text-align:center;box-shadow:0 20px 50px rgba(13,61,87,.08)">
+      <img loading="lazy" decoding="async" src="assets/characters/leo-wave.webp" alt="Leo saludando" style="aspect-ratio:1/1;width:150px;display:block;margin:0 auto 12px">
+      <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#EB0057">Muy pronto</div>
+      <h1 style="font-family:'Baloo 2',cursive;font-size:clamp(28px,6.4vw,38px);font-weight:800;margin:8px 0 12px;line-height:1.1">Los perfiles aún no están abiertos</h1>
+      <p style="margin:0 auto 26px;font-size:17px;line-height:1.6;color:#5B7A8C;max-width:460px">Estamos preparando el piloto. Inscribe a tu hijo gratis y te avisaremos por email cuando pueda entrar a jugar.</p>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <button onClick="{{ nav.alta }}" style="font-family:'Baloo 2',cursive;font-size:18px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:16px;padding:15px 28px;min-height:52px;box-shadow:0 4px 0 #B30044;cursor:pointer" style-active="transform:translateY(2px);box-shadow:0 2px 0 #B30044">Inscríbete gratis</button>
+        <button onClick="{{ nav.home }}" style="font-family:'Baloo 2',cursive;font-size:18px;font-weight:700;background:#fff;color:#006DAA;border:2px solid #C9E2F0;border-radius:16px;padding:13px 26px;min-height:52px;cursor:pointer" style-hover="background:#F0F8FC">Volver al inicio</button>
       </div>
     </div>
   </section>
@@ -1023,7 +875,7 @@
           <sc-if value="{{ isRegister }}" hint-placeholder-val="{{ true }}">
             <label style="display:flex;gap:10px;align-items:flex-start;font-size:14px;color:#5B7A8C"><input type="checkbox" style="margin-top:3px"> Soy el padre, madre o tutor legal y acepto la política de privacidad.</label>
           </sc-if>
-          <button onClick="{{ nav.panel }}" style="font-family:'Baloo 2',cursive;font-size:19px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:18px;padding:16px;box-shadow:0 5px 0 #B30044;cursor:pointer" style-active="transform:translateY(3px);box-shadow:0 2px 0 #B30044">{{ authCta }}</button>
+          <button onClick="{{ authGo }}" style="font-family:'Baloo 2',cursive;font-size:19px;font-weight:700;background:#EB0057;color:#fff;border:none;border-radius:18px;padding:16px;box-shadow:0 5px 0 #B30044;cursor:pointer" style-active="transform:translateY(3px);box-shadow:0 2px 0 #B30044">{{ authCta }}</button>
           <div style="display:flex;align-items:center;gap:12px;color:#9AB4C2;font-size:13px"><div style="flex:1;height:1px;background:#E6F0F6"></div>o<div style="flex:1;height:1px;background:#E6F0F6"></div></div>
           <button onClick="{{ nav.panel }}" style="font:inherit;font-size:16px;font-weight:600;background:#fff;color:#0D3D57;border:2px solid #E6F0F6;border-radius:16px;padding:14px;cursor:pointer" style-hover="background:#F4F9FC">Continuar con Google</button>
           <div style="border-top:1px solid #E6F0F6;padding-top:16px;display:grid;gap:12px">
@@ -1031,20 +883,132 @@
               <p style="margin:0 0 8px;font-size:14px;color:#5B7A8C">El niño entra en su perfil</p>
               <button onClick="{{ nav.panelKid }}" style="font:inherit;font-size:15px;font-weight:600;color:#EB0057;background:#fff;border:2px solid #F5C6D8;border-radius:14px;padding:11px 18px;min-height:44px;cursor:pointer" style-hover="background:#FFF3F7">Perfil del niño</button>
             </div>
-            <div>
-              <p style="margin:0 0 8px;font-size:14px;color:#5B7A8C">Club, escuela deportiva, campus o colegio</p>
-              <div style="display:flex;gap:10px;flex-wrap:wrap">
-                <button onClick="{{ nav.panelClub }}" style="font:inherit;font-size:15px;font-weight:600;color:#006DAA;background:#fff;border:2px solid #C9E2F0;border-radius:14px;padding:11px 18px;cursor:pointer" style-hover="background:#F0F8FC">Panel del club</button>
-                <button onClick="{{ nav.altaClub }}" style="font:inherit;font-size:15px;font-weight:600;color:#006DAA;background:none;border:none;padding:11px 4px;cursor:pointer">Darse de alta</button>
-              </div>
-            </div>
-            <div>
-              <p style="margin:0 0 8px;font-size:14px;color:#5B7A8C">Entrenador o profesor</p>
-              <button onClick="{{ nav.panelCoach }}" style="font:inherit;font-size:15px;font-weight:600;color:#006DAA;background:#fff;border:2px solid #C9E2F0;border-radius:14px;padding:11px 18px;cursor:pointer" style-hover="background:#F0F8FC">Entrar con el código del equipo</button>
-            </div>
           </div>
         </div>
       </div>
+    </div>
+  </section>
+</div>
+</sc-if>
+
+<sc-if value="{{ isAlta }}" hint-placeholder-val="{{ false }}">
+<div>
+  <section style="background:#F4F9FC;padding:40px clamp(16px,5vw,24px) 80px;min-height:80vh">
+    <div style="max-width:760px;margin:0 auto">
+      <div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-bottom:16px">
+        <div style="font-size:13px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#EB0057">Inscripción gratuita</div>
+        <div style="font-size:14px;color:#5B7A8C">Sin tarjeta · unos 2 minutos</div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-bottom:20px">
+        <sc-for list="{{ altaSteps }}" as="st" hint-placeholder-count="4">
+          <div style="display:grid;gap:7px;min-width:0">
+            <i style="display:block;height:6px;border-radius:99px;background:{{ st.bar }}"></i>
+            <span style="font-size:13px;font-weight:700;color:{{ st.color }};overflow:hidden;text-overflow:ellipsis;white-space:nowrap">{{ st.label }}</span>
+          </div>
+        </sc-for>
+      </div>
+
+      <div style="background:#fff;border-radius:28px;padding:clamp(22px,5.5vw,40px);box-shadow:0 20px 50px rgba(13,61,87,.08)">
+
+        <sc-if value="{{ altaIs1 }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <h1 style="font-family:'Baloo 2',cursive;font-size:clamp(26px,6vw,34px);font-weight:800;margin:0 0 6px;line-height:1.1">Tu cuenta de adulto</h1>
+            <p style="margin:0 0 24px;font-size:16px;line-height:1.55;color:#5B7A8C">La cuenta es del padre, la madre o el tutor legal. El niño entra después con su propio perfil.</p>
+            <div style="display:grid;gap:16px">
+              <button onClick="{{ altaGoogle }}" style="font:inherit;font-size:16px;font-weight:600;background:#fff;color:#0D3D57;border:2px solid #E6F0F6;border-radius:16px;padding:14px;min-height:50px;cursor:pointer" style-hover="background:#F4F9FC">Continuar con Google</button>
+              <div style="display:flex;align-items:center;gap:12px;color:#9AB4C2;font-size:13px"><i style="flex:1;height:1px;background:#E6F0F6;display:block"></i>o con tu email<i style="flex:1;height:1px;background:#E6F0F6;display:block"></i></div>
+              <div><label style="display:block;font-size:15px;font-weight:700;margin-bottom:8px;color:#0D3D57">Email</label><input type="email" value="{{ altaEmail }}" onChange="{{ altaSetEmail }}" placeholder="tu@email.com" style="width:100%;font:inherit;font-size:16px;padding:13px 15px;border:2px solid #E6F0F6;border-radius:14px;outline:none;color:#0D3D57;background:#fff" style-focus="border-color:#0098FF"></div>
+              <div><label style="display:block;font-size:15px;font-weight:700;margin-bottom:8px;color:#0D3D57">Contraseña</label><input type="password" value="{{ altaPass }}" onChange="{{ altaSetPass }}" placeholder="Mínimo 8 caracteres" style="width:100%;font:inherit;font-size:16px;padding:13px 15px;border:2px solid #E6F0F6;border-radius:14px;outline:none;color:#0D3D57;background:#fff" style-focus="border-color:#0098FF"></div>
+              <label style="display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;color:#3D6579;cursor:pointer"><input type="checkbox" checked="{{ altaAccept }}" onChange="{{ altaToggleAccept }}" style="width:20px;height:20px;margin-top:2px;flex:none;accent-color:#EB0057"><span>Soy el padre, la madre o el tutor legal y acepto la <a href="#" style="color:#006DAA">política de privacidad</a>.</span></label>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ altaIs2 }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <h1 style="font-family:'Baloo 2',cursive;font-size:clamp(26px,6vw,34px);font-weight:800;margin:0 0 6px;line-height:1.1">¿Quién va a jugar?</h1>
+            <p style="margin:0 0 24px;font-size:16px;line-height:1.55;color:#5B7A8C">Solo el nombre de pila y el año de nacimiento. Nunca apellidos ni fecha completa.</p>
+            <div style="display:grid;gap:22px">
+              <div><label style="display:block;font-size:15px;font-weight:700;margin-bottom:8px;color:#0D3D57">Nombre de pila</label><input value="{{ altaName }}" onChange="{{ altaSetName }}" placeholder="Marc" style="width:100%;font:inherit;font-size:16px;padding:13px 15px;border:2px solid #E6F0F6;border-radius:14px;outline:none;color:#0D3D57;background:#fff" style-focus="border-color:#0098FF"></div>
+              <div><span style="display:block;font-size:15px;font-weight:700;margin-bottom:8px;color:#0D3D57">Año de nacimiento</span><div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ altaYears }}" as="y" hint-placeholder-count="6">
+                <button onClick="{{ y.pick }}" style="font:inherit;font-size:15px;font-weight:700;border:2px solid {{ y.border }};background:{{ y.bg }};color:{{ y.color }};border-radius:99px;padding:9px 16px;min-height:44px;cursor:pointer">{{ y.label }}</button>
+              </sc-for>
+              </div></div>
+              <div><span style="display:block;font-size:15px;font-weight:700;margin-bottom:8px;color:#0D3D57">Elige su avatar</span><div style="display:flex;flex-wrap:wrap;gap:10px">
+                <sc-for list="{{ altaAvatars }}" as="a" hint-placeholder-count="6">
+                  <button onClick="{{ a.pick }}" aria-label="{{ a.name }}" style="width:60px;height:60px;font-size:30px;border:3px solid {{ a.border }};background:{{ a.bg }};border-radius:18px;cursor:pointer;display:grid;place-items:center">{{ a.emoji }}</button>
+                </sc-for>
+              </div></div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ altaIs3 }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <h1 style="font-family:'Baloo 2',cursive;font-size:clamp(26px,6vw,34px);font-weight:800;margin:0 0 6px;line-height:1.1">Su deporte</h1>
+            <p style="margin:0 0 24px;font-size:16px;line-height:1.55;color:#5B7A8C">Con esto preparamos la Competición de cada semana: contenido en inglés de su equipo, de su equipo favorito y de los deportes que le gustan.</p>
+            <div style="display:grid;gap:24px">
+              <div><span style="display:block;font-size:15px;font-weight:700;margin-bottom:8px;color:#0D3D57">¿Qué deporte practica?</span><div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ altaSports1 }}" as="sp" hint-placeholder-count="6">
+                <button onClick="{{ sp.pick }}" style="font:inherit;font-size:15px;font-weight:700;border:2px solid {{ sp.border }};background:{{ sp.bg }};color:{{ sp.color }};border-radius:99px;padding:9px 16px;min-height:44px;cursor:pointer">{{ sp.label }}</button>
+              </sc-for>
+              </div></div>
+              <div><span style="display:block;font-size:15px;font-weight:700;margin-bottom:8px;color:#0D3D57">¿Y su segundo deporte favorito?</span><div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ altaSports2 }}" as="sq" hint-placeholder-count="6">
+                <button onClick="{{ sq.pick }}" style="font:inherit;font-size:15px;font-weight:700;border:2px solid {{ sq.border }};background:{{ sq.bg }};color:{{ sq.color }};border-radius:99px;padding:9px 16px;min-height:44px;cursor:pointer">{{ sq.label }}</button>
+              </sc-for>
+              </div></div>
+              <div>
+                <span style="display:block;font-size:15px;font-weight:700;margin-bottom:8px;color:#0D3D57">¿En qué equipo juega?</span>
+                <sc-if value="{{ altaHasTeam }}" hint-placeholder-val="{{ true }}">
+                  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:10px;margin-bottom:10px">
+                    <input value="{{ altaClub }}" onChange="{{ altaSetClub }}" placeholder="Club o escuela (p. ej. CE Sant Andreu)" style="width:100%;font:inherit;font-size:16px;padding:13px 15px;border:2px solid #E6F0F6;border-radius:14px;outline:none;color:#0D3D57;background:#fff" style-focus="border-color:#0098FF">
+                    <input value="{{ altaCat }}" onChange="{{ altaSetCat }}" placeholder="Categoría (p. ej. Benjamín B)" style="width:100%;font:inherit;font-size:16px;padding:13px 15px;border:2px solid #E6F0F6;border-radius:14px;outline:none;color:#0D3D57;background:#fff" style-focus="border-color:#0098FF">
+                  </div>
+                </sc-if>
+                <label style="display:flex;gap:10px;align-items:center;font-size:15px;color:#3D6579;cursor:pointer"><input type="checkbox" checked="{{ altaNoTeam }}" onChange="{{ altaToggleNoTeam }}" style="width:20px;height:20px;accent-color:#EB0057">No juega en ningún equipo</label>
+              </div>
+              <div><label style="display:block;font-size:15px;font-weight:700;margin-bottom:8px;color:#0D3D57">¿De qué equipo es fan?</label><input value="{{ altaFan }}" onChange="{{ altaSetFan }}" placeholder="FC Barcelona, Real Madrid, Lakers…" style="width:100%;font:inherit;font-size:16px;padding:13px 15px;border:2px solid #E6F0F6;border-radius:14px;outline:none;color:#0D3D57;background:#fff" style-focus="border-color:#0098FF"></div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ altaIs4 }}" hint-placeholder-val="{{ false }}">
+          <div style="text-align:center">
+            <div style="width:110px;height:110px;margin:0 auto 16px;border-radius:34px;background:#E9F5FF;display:grid;place-items:center;font-size:58px">{{ altaAvatarEmoji }}</div>
+            <h1 style="font-family:'Baloo 2',cursive;font-size:clamp(26px,6vw,34px);font-weight:800;margin:0 0 6px;line-height:1.1">¡{{ altaName }} ya está en el equipo!</h1>
+            <p style="margin:0 auto 24px;font-size:16px;line-height:1.55;color:#5B7A8C;max-width:460px">Su plaza en el piloto está reservada.</p>
+            <div style="text-align:left;background:#F4F9FC;border-radius:20px;padding:6px 20px;margin-bottom:18px">
+              <sc-for list="{{ altaSummary }}" as="r" hint-placeholder-count="6">
+                <div style="display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid #E6F0F6;font-size:15px"><span style="color:#5B7A8C">{{ r.k }}</span><b style="text-align:right">{{ r.v }}</b></div>
+              </sc-for>
+            </div>
+            <div style="text-align:left;background:#E9F7EF;border:1px solid #B7E2C8;border-radius:16px;padding:14px 18px;font-size:15px;line-height:1.55;color:#0F6B39;margin-bottom:24px">Gratis durante el piloto. Antes del lanzamiento de enero te contaremos los planes, y nunca cobraremos nada sin que lo aceptes.</div>
+            <div style="display:grid;gap:10px">
+              <div style="text-align:left;background:#E9F5FF;border:1px solid #C9E2F0;border-radius:16px;padding:14px 18px;font-size:15px;line-height:1.55;color:#0D3D57">Te avisaremos por email en cuanto se abra su perfil para empezar a jugar.</div>
+              <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,200px),1fr));gap:10px">
+                <button onClick="{{ altaAddKid }}" style="font:inherit;font-size:16px;font-weight:700;background:#fff;color:#006DAA;border:2px solid #C9E2F0;border-radius:16px;padding:13px;min-height:50px;cursor:pointer" style-hover="background:#F0F8FC">+ Añadir otro hijo</button>
+                <button onClick="{{ nav.home }}" style="font:inherit;font-size:16px;font-weight:700;background:#fff;color:#006DAA;border:2px solid #C9E2F0;border-radius:16px;padding:13px;min-height:50px;cursor:pointer" style-hover="background:#F0F8FC">Volver al inicio</button>
+              </div>
+            </div>
+          </div>
+        </sc-if>
+
+        <sc-if value="{{ altaShowNav }}" hint-placeholder-val="{{ true }}">
+          <div style="margin-top:28px;padding-top:20px;border-top:1px solid #E6F0F6;display:grid;gap:10px">
+            <sc-if value="{{ altaHint }}">
+              <div style="font-size:14px;color:#B30044">{{ altaHint }}</div>
+            </sc-if>
+            <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+              <button onClick="{{ altaBack }}" style="font:inherit;font-size:16px;font-weight:600;color:#006DAA;background:none;border:none;padding:12px 4px;min-height:48px;cursor:pointer">{{ altaBackLabel }}</button>
+              <button onClick="{{ altaNext }}" style="font-family:'Baloo 2',cursive;font-size:19px;font-weight:700;background:{{ altaNextBg }};color:#fff;border:none;border-radius:16px;padding:14px 34px;min-height:54px;box-shadow:0 4px 0 {{ altaNextShadow }};cursor:pointer">{{ altaNextLabel }}</button>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <p style="margin:18px 0 0;text-align:center;font-size:15px;color:#5B7A8C">¿Ya tienes cuenta? <button onClick="{{ altaSignin }}" style="font:inherit;font-weight:700;color:#006DAA;background:none;border:none;padding:4px;cursor:pointer">Entrar</button></p>
     </div>
   </section>
 </div>
@@ -1520,9 +1484,7 @@
       <h5 style="font-family:'Baloo 2',cursive;font-size:17px;color:#fff;margin:0 0 12px">Refuerzo</h5>
       <div style="display:grid;gap:9px;font-size:15px">
         <button onClick="{{ nav.programas }}" style="font:inherit;text-align:left;background:none;border:none;color:#B9D9EC;padding:0;cursor:pointer">Clases y entrenamientos</button>
-        <button onClick="{{ nav.altaClub }}" style="font:inherit;text-align:left;background:none;border:none;color:#B9D9EC;padding:0;cursor:pointer">Dar de alta un club</button>
-        <button onClick="{{ nav.panelClub }}" style="font:inherit;text-align:left;background:none;border:none;color:#B9D9EC;padding:0;cursor:pointer">Panel del club</button>
-        <button onClick="{{ nav.panelCoach }}" style="font:inherit;text-align:left;background:none;border:none;color:#B9D9EC;padding:0;cursor:pointer">Acceso de entrenadores</button>
+        <button onClick="{{ nav.alta }}" style="font:inherit;text-align:left;background:none;border:none;color:#B9D9EC;padding:0;cursor:pointer">Inscripción gratuita</button>
         <button onClick="{{ nav.clubes }}" style="font:inherit;text-align:left;background:none;border:none;color:#B9D9EC;padding:0;cursor:pointer">Clubes y escuelas deportivas</button>
         <button onClick="{{ nav.colegios }}" style="font:inherit;text-align:left;background:none;border:none;color:#B9D9EC;padding:0;cursor:pointer">Escuelas y colegios</button>
       </div>
@@ -1581,8 +1543,8 @@ const SKILLS = [
   { name: 'Verbos de movimiento', pct: 43 }
 ];
 
-// URL del .mp4 "Qué es Sports & Lingo" alojado en Hostinger (p. ej. https://sportsandlingo.com/video/que-es.mp4).
-const INTRO_VIDEO_URL = '/que-es-sports-and-lingo.mp4';
+// Vídeo "Qué es Sports & Lingo" en YouTube (versión sin cookies hasta que se pulsa play).
+const INTRO_VIDEO_URL = 'https://www.youtube-nocookie.com/embed/ObbhaGFaX90?rel=0&modestbranding=1&playsinline=1';
 
 // Pega aquí los Payment Links de Stripe cuando estén creados.
 // Mientras estén vacíos, los botones llevan al formulario de contacto.
@@ -1613,6 +1575,16 @@ const KID_TEAM = [
   { pos: '4', emoji: '🐼', name: 'Júlia', xp: '120 XP' }
 ];
 
+const ALTA_SPORTS = [
+  ['futbol', '⚽ Fútbol'], ['basket', '🏀 Baloncesto'], ['balonmano', '🤾 Balonmano'], ['voley', '🏐 Voleibol'],
+  ['tenis', '🎾 Tenis'], ['padel', 'Pádel'], ['hockey', '🏑 Hockey'], ['natacion', '🏊 Natación'],
+  ['atletismo', '🏃 Atletismo'], ['otro', 'Otro']
+];
+const ALTA_AVATARS = [['🦁', 'León'], ['🦅', 'Águila'], ['🐘', 'Elefante'], ['🦒', 'Jirafa'], ['🐯', 'Tigre'], ['🐼', 'Panda']];
+const ALTA_YEARS = [2020, 2019, 2018, 2017, 2016, 2015, 2014];
+const ALTA_STEPS = ['Tu cuenta', 'Tu hijo', 'Su deporte', 'Listo'];
+const ALTA_EMPTY_KID = { name: '', year: null, avatar: 0, sport: null, sport2: null, club: '', cat: '', noTeam: false, fan: '' };
+
 const KIDS = [
   { name: 'Marc', emoji: '🦁', xp: 150, streak: 4, missions: '3/5', minutes: 22 },
   { name: 'Aina', emoji: '🦒', xp: 320, streak: 9, missions: '5/5', minutes: 41 }
@@ -1623,9 +1595,37 @@ class Component extends DCLogic {
     page: 'home', step: 0, chosen: null, correct: 0, auth: 'register', role: 0, kid: 0, lang: 'es',
     isMobile: typeof window !== 'undefined' && window.innerWidth < 1010,
     menuOpen: false,
+    alta: { step: 1, email: '', pass: '', accept: false, ...ALTA_EMPTY_KID },
+    altaDone: null,
   };
 
-  go = (page) => () => { this.setState({ page, menuOpen: false }); window.scrollTo(0, 0); };
+  setA = (patch) => this.setState((p) => ({ alta: { ...p.alta, ...patch } }));
+  altaField = (k) => (e) => this.setA({ [k]: e.target.value });
+
+  altaCheck = (a) => {
+    if (a.step === 1) {
+      if (!/.+@.+\..+/.test(a.email)) return 'Escribe un email válido o continúa con Google.';
+      if (a.email !== 'Google' && a.pass.length < 8) return 'La contraseña necesita al menos 8 caracteres.';
+      if (!a.accept) return 'Marca la casilla de tutor legal para seguir.';
+    }
+    if (a.step === 2) {
+      if (!a.name.trim()) return 'Escribe su nombre de pila.';
+      if (!a.year) return 'Elige su año de nacimiento.';
+    }
+    if (a.step === 3) {
+      if (!a.sport) return 'Elige el deporte que practica.';
+      if (!a.noTeam && !a.club.trim()) return 'Escribe su club o marca que no juega en ningún equipo.';
+    }
+    return '';
+  };
+
+  // Perfiles cerrados hasta el piloto: login y paneles llevan a la pantalla "Muy pronto".
+  // Para abrirlos, deja LOCKED_PAGES vacío.
+  go = (page) => () => {
+    const LOCKED_PAGES = ['login', 'panel', 'panelKid', 'aula', 'panelClub', 'panelCoach', 'altaClub'];
+    this.setState({ page: LOCKED_PAGES.includes(page) ? 'locked' : page, menuOpen: false });
+    window.scrollTo(0, 0);
+  };
 
   toggleMenu = () => this.setState((p) => ({ menuOpen: !p.menuOpen }));
 
@@ -1715,7 +1715,53 @@ class Component extends DCLogic {
       centros: this.go('programas'), colegios: this.go('colegios'), clubes: this.go('clubes'), app: this.go('app'),
       contacto: this.go('contacto'), login: this.go('login'), panel: this.go('panel'),
       panelClub: this.go('panelClub'), altaClub: this.go('altaClub'), panelCoach: this.go('panelCoach'),
-      panelKid: this.go('panelKid'), aula: this.go('aula')
+      panelKid: this.go('panelKid'), aula: this.go('aula'), alta: this.go('alta')
+    };
+
+    const a = s.alta;
+    const altaErr = this.altaCheck(a);
+    const sportName = (id) => { const f = ALTA_SPORTS.find((x) => x[0] === id); return f ? f[1] : ''; };
+    const chipOf = (on) => ({ bg: on ? '#006DAA' : '#fff', color: on ? '#fff' : '#0D3D57', border: on ? '#006DAA' : '#D7E6EF' });
+    const altaVals = {
+      isAlta: s.page === 'alta',
+      altaIs1: a.step === 1, altaIs2: a.step === 2, altaIs3: a.step === 3, altaIs4: a.step === 4,
+      altaShowNav: a.step < 4,
+      altaSteps: ALTA_STEPS.map((label, i) => ({ label, bar: i + 1 <= a.step ? '#EB0057' : '#D7E6EF', color: i + 1 === a.step ? '#0D3D57' : '#9AB4C2' })),
+      altaEmail: a.email === 'Google' ? '' : a.email, altaPass: a.pass, altaAccept: a.accept, altaName: a.name,
+      altaClub: a.club, altaCat: a.cat, altaFan: a.fan, altaNoTeam: a.noTeam, altaHasTeam: !a.noTeam,
+      altaSetEmail: this.altaField('email'), altaSetPass: this.altaField('pass'), altaSetName: this.altaField('name'),
+      altaSetClub: this.altaField('club'), altaSetCat: this.altaField('cat'), altaSetFan: this.altaField('fan'),
+      altaToggleAccept: () => this.setA({ accept: !a.accept }),
+      altaToggleNoTeam: () => this.setA({ noTeam: !a.noTeam }),
+      altaGoogle: () => this.setA({ email: 'Google', accept: true, step: 2 }),
+      altaYears: ALTA_YEARS.map((y) => ({ label: String(y), ...chipOf(a.year === y), pick: () => this.setA({ year: y }) })),
+      altaAvatars: ALTA_AVATARS.map(([emoji, name], i) => ({ emoji, name, bg: a.avatar === i ? '#E9F5FF' : '#F4F9FC', border: a.avatar === i ? '#0098FF' : 'transparent', pick: () => this.setA({ avatar: i }) })),
+      altaSports1: ALTA_SPORTS.map(([id, label]) => ({ label, ...chipOf(a.sport === id), pick: () => this.setA({ sport: id, sport2: a.sport2 === id ? null : a.sport2 }) })),
+      altaSports2: ALTA_SPORTS.filter(([id]) => id !== a.sport).concat([['ninguno', 'Ninguno']]).map(([id, label]) => ({ label, ...chipOf(a.sport2 === id), pick: () => this.setA({ sport2: id }) })),
+      altaAvatarEmoji: ALTA_AVATARS[a.avatar][0],
+      altaSummary: [
+        { k: 'Nombre', v: a.name },
+        { k: 'Año de nacimiento', v: String(a.year || '') },
+        { k: 'Deporte', v: sportName(a.sport) },
+        { k: 'Segundo deporte', v: a.sport2 === 'ninguno' || !a.sport2 ? '—' : sportName(a.sport2) },
+        { k: 'Su equipo', v: a.noTeam ? 'No juega en equipo' : [a.club, a.cat].filter(Boolean).join(' · ') },
+        { k: 'Fan de', v: a.fan || '—' }
+      ],
+      altaHint: s.altaTried ? altaErr : '',
+      altaNextBg: altaErr ? '#F5A3C2' : '#EB0057',
+      altaNextShadow: altaErr ? '#E58AAE' : '#B30044',
+      altaNextLabel: a.step === 3 ? 'Terminar' : 'Continuar',
+      altaBackLabel: a.step === 1 ? 'Cancelar' : '← Atrás',
+      altaNext: () => {
+        if (altaErr) { this.setState({ altaTried: true }); return; }
+        this.setState({ altaTried: false, altaDone: a.step === 3 ? { ...a } : s.altaDone });
+        this.setA({ step: a.step + 1 });
+        window.scrollTo(0, 0);
+      },
+      altaBack: () => { this.setState({ altaTried: false }); if (a.step === 1) this.go('home')(); else this.setA({ step: a.step - 1 }); },
+      altaToKid: this.go('panelKid'),
+      altaAddKid: () => { this.setState({ altaTried: false }); this.setA({ ...ALTA_EMPTY_KID, step: 2 }); window.scrollTo(0, 0); },
+      altaSignin: () => { this.setState({ auth: 'signin' }); this.go('login')(); }
     };
 
     const tab = s.reportTab || 'familia';
@@ -1781,8 +1827,10 @@ class Component extends DCLogic {
       onPaySolo8: () => { STRIPE_LINKS.solo8 ? location.assign(STRIPE_LINKS.solo8) : this.go('contacto')(); },
       hasIntroVideo: !!INTRO_VIDEO_URL, noIntroVideo: !INTRO_VIDEO_URL, introVideoUrl: INTRO_VIDEO_URL,
       isPanelKid: s.page === 'panelKid', path, team,
-      isAula: s.page === 'aula', reportTabs, reportText, endClass: this.go('panel'),
-      kidEmoji: kid.emoji, kidName: kid.name,
+      isAula: s.page === 'aula', isLocked: s.page === 'locked', reportTabs, reportText, endClass: this.go('panel'),
+      ...altaVals,
+      kidEmoji: s.altaDone ? ALTA_AVATARS[s.altaDone.avatar][0] : kid.emoji,
+      kidName: s.altaDone ? s.altaDone.name : kid.name,
 
       demoRunning: !done, demoDone: done,
       demoProgress: `${((Math.min(s.step, DEMO.length) + (answered ? 1 : 0)) / DEMO.length) * 100}%`,
@@ -1818,7 +1866,8 @@ class Component extends DCLogic {
       regColor: s.auth === 'register' ? '#006DAA' : '#5B7A8C',
       signBg: s.auth === 'signin' ? '#fff' : 'transparent',
       signColor: s.auth === 'signin' ? '#006DAA' : '#5B7A8C',
-      authCta: s.auth === 'register' ? 'Crear cuenta' : 'Entrar',
+      authCta: s.auth === 'register' ? 'Empezar la inscripción' : 'Entrar',
+      authGo: s.auth === 'register' ? this.go('alta') : this.go('panel'),
 
       kids: KIDS.map((k, i) => ({
         name: k.name, emoji: k.emoji,
